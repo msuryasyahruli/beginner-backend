@@ -6,6 +6,7 @@ const {
   deleteOrders,
   countData,
   findId,
+  searching,
 } = require("../model/orders");
 const commonHelper = require("../helper/common");
 
@@ -109,6 +110,14 @@ const ordersController = {
     } catch (error) {
       console.log(error);
     }
+  },
+  searching: async (req, res) => {
+    const search = req.query.keyword;
+    searching(search)
+      .then((result) => {
+        commonHelper.response(res, result.rows, 200, "search success");
+      })
+      .catch((err) => res.send(err));
   },
 };
 

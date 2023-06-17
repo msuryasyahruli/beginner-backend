@@ -44,6 +44,12 @@ const findId = (id) => {
   );
 };
 
+const searching = (date) => {
+  return Pool.query(
+    `SELECT * FROM orders WHERE orders.date ILIKE '%${date}%'`
+  );
+};
+
 module.exports = {
   selectAllOrders,
   selectOrders,
@@ -52,4 +58,5 @@ module.exports = {
   deleteOrders,
   countData,
   findId,
+  searching,
 };

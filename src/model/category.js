@@ -1,8 +1,8 @@
 const Pool = require("../config/db");
 
-const selectAllCategory = (limit, offset, sortby, sort, search) => {
+const selectAllCategory = (limit, offset, sortby, sort) => {
   return Pool.query(
-    `SELECT * FROM category WHERE category.name ILIKE '%${search}%' ORDER BY ${sortby} ${sort} LIMIT ${limit} OFFSET ${offset}`
+    `SELECT * FROM category ORDER BY ${sortby} ${sort} LIMIT ${limit} OFFSET ${offset}`
   );
 };
 
@@ -40,6 +40,12 @@ const findId = (id) => {
   );
 };
 
+const searching = (name) => {
+  return Pool.query(
+    `SELECT * FROM category WHERE category.name ILIKE '%${name}%'`
+  );
+};
+
 module.exports = {
   selectAllCategory,
   selectCategory,
@@ -48,4 +54,5 @@ module.exports = {
   deleteCategory,
   countData,
   findId,
+  searching,
 };

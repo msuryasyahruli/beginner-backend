@@ -4,6 +4,7 @@ const productController = require("../controller/products");
 
 router
   .get("/", productController.getAllProduct)
+  .get("/search", productController.searching)
   .get("/:id", productController.getDetailProduct)
   .post("/", productController.createProduct)
   .put("/:id", productController.updateProduct)

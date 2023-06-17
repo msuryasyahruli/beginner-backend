@@ -6,6 +6,7 @@ const {
   deleteCategory,
   countData,
   findId,
+  searching,
 } = require("../model/category");
 const commonHelper = require("../helper/common");
 
@@ -17,14 +18,7 @@ const categoryController = {
       const offset = (page - 1) * limit;
       const sortby = req.query.sortby || "id";
       const sort = req.query.sort || "ASC";
-      const search = req.query.search || "";
-      const result = await selectAllCategory(
-        limit,
-        offset,
-        sortby,
-        sort,
-        search
-      );
+      const result = await selectAllCategory(limit, offset, sortby, sort);
       const {
         rows: [count],
       } = await countData();
@@ -107,6 +101,14 @@ const categoryController = {
     } catch (error) {
       console.log(error);
     }
+  },
+  searching: async (req, res) => {
+    const search = req.query.keyword;
+    searching(search)
+      .then((result) => {
+        commonHelper.response(res, result.rows, 200, "search success");
+      })
+      .catch((err) => res.send(err));
   },
 };
 

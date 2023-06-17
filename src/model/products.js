@@ -44,6 +44,12 @@ const findId = (id) => {
   );
 };
 
+const searching = (name) => {
+  return Pool.query(
+    `SELECT * FROM products WHERE products.name ILIKE '%${name}%'`
+  );
+};
+
 module.exports = {
   selectAllProduct,
   selectProduct,
@@ -52,4 +58,5 @@ module.exports = {
   deleteProduct,
   countData,
   findId,
+  searching,
 };
