@@ -2,7 +2,7 @@ const Pool = require("../config/db");
 
 const selectAllProduct = (limit, offset, sortby, sort, search) => {
   return Pool.query(
-    `SELECT * FROM products WHERE products.name ILIKE '%${search}%' ORDER BY ${sortby} ${sort} LIMIT ${limit} OFFSET ${offset}`
+    `SELECT * FROM products ORDER BY ${sortby} ${sort} LIMIT ${limit} OFFSET ${offset}`
   );
 };
 

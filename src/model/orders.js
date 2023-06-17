@@ -2,7 +2,7 @@ const Pool = require("../config/db");
 
 const selectAllOrders = (limit, offset, sortby, sort, search) => {
   return Pool.query(
-    `SELECT * FROM orders WHERE orders.date ILIKE '%${search}%' ORDER BY ${sortby} ${sort} LIMIT ${limit} OFFSET ${offset}`
+    `SELECT * FROM orders ORDER BY ${sortby} ${sort} LIMIT ${limit} OFFSET ${offset}`
   );
 };
 
