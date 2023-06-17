@@ -18,14 +18,7 @@ const productController = {
       const offset = (page - 1) * limit;
       const sortby = req.query.sortby || "id";
       const sort = req.query.sort || "ASC";
-      const search = req.query.search || "";
-      const result = await selectAllProduct(
-        limit,
-        offset,
-        sortby,
-        sort,
-        search
-      );
+      const result = await selectAllProduct(limit, offset, sortby, sort);
       const {
         rows: [count],
       } = await countData();
