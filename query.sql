@@ -32,14 +32,17 @@ CREATE TABLE orders(
 ------------------------------------------------------------||------------------------------------------------------------
 SELECT * FROM products;
 SELECT * FROM products ORDER BY name acs LIMIT limit OFFSET offset;
-SELECT * FROM products WHERE id=1;
+SELECT products.id, products.name, products.price, products.image, products.brand, category.name AS category FROM products join category ON products.id_category = category.id WHERE products.id=1;
+SELECT products.*, category.name AS category FROM products join category ON products.id_category = category.id WHERE id=1;
 INSERT INTO products(id,name,price,stock,image,brand,id_category) VALUES(1,'kaos',50000,25,'kaos.img','eiger',1);
 INSERT INTO products(id,name,price,stock,image,brand,id_category) VALUES(2,'kemeja',60000,43,'kemeja.img','benhill',1);
 INSERT INTO products(id,name,price,stock,image,brand,id_category) VALUES(3,'celana',80000,16,'celana.img','bumbbuugie',2);
 UPDATE products SET name='kaos putih', price=45000, stock=19, image='kaosputih.img', brand='eiger' WHERE id=1;
 DELETE FROM products WHERE id=1;
 SELECT COUNT(*) FROM products;
-SELECT id FROM product WHERE id=1;
+SELECT id FROM products WHERE id=1;
+SELECT products.id, products.name, products.price, products.image, products.brand, category.name AS category FROM products join category ON products.id_category = category.id;
+SELECT products.id, products.name, products.price, products.image, products.brand, category.name AS category FROM products join category ON products.id_category = category.id WHERE products.name ILIKE 'ja';
 
 ------------------------------------------------------------
 SELECT * FROM category;

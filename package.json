@@ -4,7 +4,8 @@
   "description": "| Thrid Party | npm install |\r | ------ | ------ |\r | [Express] | npm i express  |\r | [Nodemon] | npm i nodemon  |\r | [Morgan] |  npm i morgan  |\r | [PostgresSQL] | npm i pg |\r | [Dotenv] | npm i dotenv |\r | [CORS] | npm i cors |\r | [Eslint] | npm i eslint |\r | [Http-errors] | npm i http-errors |",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "lint": "eslint --fix --ext .js,.jsx ."
   },
   "author": "",
@@ -20,7 +21,7 @@
     "xss-clean": "^0.1.4"
   },
   "devDependencies": {
-    "eslint": "^8.42.0",
+    "eslint": "^8.43.0",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.22"
   }
